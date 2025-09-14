@@ -14,6 +14,6 @@ Los objetivos de este repositorio son:
 - mejorar mi lógica de programación
 
 ## 👨‍💻Referencias
-Los apuntes los tomo a partir de una lista de reproducción proporcionada por el gran [mouredev](https://github.com/mouredev).\
+Los apuntes los tomo a partir de una lista de reproducción proporcionada por el gran [mouredev](https://github.com/mouredev).
 - Lista de reproducción --> [Curso De Python Desde 0](https://www.youtube.com/playlist?list=PLNdFk2_brsRdgQXLIlKBXQDeRf3qvXVU_)
-- Retos de programación --> [Retos](https://retosdeprogramacion.com/ejercicios/)
+- Retos de programación --> [retosdeprogramacion](https://retosdeprogramacion.com/ejercicios/)
