@@ -1,5 +1,6 @@
 ### Tuples ###
 """
+Las tuplas son listas que no se pueden modificar.
 En las tuplas no puedes modificar los elementos, son INMUTABLES, constantes.
 Los elementos de una tupla son constantes.
     *my_tuple[2] = "otro dato" --> no funcionaría, porque EDITAS el elemento con índice 2

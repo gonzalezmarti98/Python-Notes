@@ -1,7 +1,7 @@
 ### Challenges ###
 
-"""
-EL FAMOSO "FIZZ BUZZ":
+"""-- 1 --
+EL FAMOSO "FIZZ BUZZ"
 Escribe un programa que muestre por consola (con un print) los números de 1 a 100
 (ambos incluidos y con un salto de línea entre cada impresión), sustituyendo los siguientes:
 - Múltiplos de 3 por la palabra "fizz".
@@ -28,8 +28,8 @@ def fizzbuzz():
         
 #fizzbuzz()
 
-"""
-¿ES UIN ANAGRAMA?:
+"""-- 2 --
+¿ES UIN ANAGRAMA?
 Escribe una función que reciba dos palabras (String) y retorne verdadero o falso (Bool) según sean o no anagramas.
 - Un Anagrama consiste en formar una palabra reordenando TODAS las letras de otra palabra inicial.
 - NO hace falta comprobar que ambas palabras existan.
@@ -46,7 +46,7 @@ def is_anagram(first_word, second_word):
 
 #print(is_anagram("roma", "amor"))
 
-"""
+"""-- 3 --
 LA SUCESIÓN DE FIBONACCI
 Escribe un programa que imprima los 50 primeros números de la sucesión
 de Fibonacci empezando en 0.
@@ -66,7 +66,7 @@ def fibonacci():
         prev = next
         next = fib
 
-# otra forma de hacerlo:
+#### otra forma de hacerlo ####
 
 def fibonacci_2():
     prev = 0
@@ -77,9 +77,9 @@ def fibonacci_2():
         prev = next
         next = fib
 
-# forma ChatGPT:
+#### forma ChatGPT ####
 
-def fibonacci():
+def fibonacci_3():
     prev = 0
     next = 1
     for _ in range(50):  # 50 números en total
@@ -89,7 +89,7 @@ def fibonacci():
 
 #fibonacci()
 
-"""
+"""-- 4 --
 ¿ES UN NÚMERO PRIMO?
 Escribe un programa que se encargue de comprobar si un número es o no primo.
 Hecho esto, imprime los números primos entre 1 y 100.
@@ -121,7 +121,9 @@ def los_100_primos():
                 print(number)
 
 #los_100_primos()
-"""
+
+"""-- 7 --
+INVIRTIENDO CADENAS
 Crea un programa que invierta el orden de una cadena de texto
 sin usar funciones propias del lenguaje que lo hagan de forma automática.
  - Si le pasamos "Hola mundo" nos retornaría "odnum aloH"
@@ -141,7 +143,7 @@ def invert_words(text):
 
 #invert_words("Soy Batman")
 
-# otra forma de hacerlo
+#### otra forma de hacerlo ####
 
 def revert(text):
     reversed_text = ""
@@ -152,5 +154,58 @@ def revert(text):
 
     return reversed_text
 
+#print(revert("Soy Batman"))
 
-print(revert("Soy Batman"))
+"""-- 10 --
+CÓDIGO MORSE
+Crea un programa que sea capaz de transformar texto natural a código
+morse y viceversa.
+- Debe detectar automáticamente de qué tipo se trata y realizar la conversión.
+- En morse se soporta raya "—", punto ".", un espacio " " entre letras o símbolos y dos espacios entre palabras "  ".
+- El alfabeto morse soportado será el mostrado en https://es.wikipedia.org/wiki/Código_morse.
+"""
+
+morse_dict = {
+    "A":"·—", "B":"—···", "C":"—·—·", "CH":"————", "D":"—··", "E":"·", "F":"··—·",
+    "G":"——·", "H":"····", "I":"··", "J":"·———", "K":"—·—", "L":"·—··", "M":"——",
+    "N":"—·", "Ñ":"——·——", "O":"———", "P":"·——·", "Q":"——·—", "R":"·—·", "S":"···",
+    "T":"—", "U":"··—", "V":"···—", "W":"·——", "X":"—··—", "Y":"—·——", "Z":"——··",
+    "0":"—————", "1":"·————", "2":"··———", "3":"···——", "4":"····—", "5":"·····",
+    "6":"—····", "7":"——···", "8":"———··", "9":"————·",
+    ".":"·—·—·—", ",":"——··——", "?":"··——··", "\"":"·—··—·", "/":"—··—·"
+}
+
+def morse_and_natural(text):
+    is_natural = False
+    break_for = False
+    new_text = ""
+    for char in text.upper():
+        for clave in morse_dict:
+            if char == clave:
+                is_natural = True
+                break_for = True
+                break
+        if break_for == True:
+            break
+    
+    # True / natural
+    if is_natural:
+        for char in text.upper():
+            for clave in morse_dict:
+                if char == clave:
+                    char = morse_dict[clave]
+                    new_text += char + "  "
+    # False / morse
+    else:
+        text = list(text.split("  "))
+        for char in text:
+            for clave, valor in morse_dict.items():
+                if char == valor:
+                    #acceder a la clave a partir del valor
+                    new_text += clave
+    
+    print(new_text)
+
+#morse_and_natural("···  ———  ···")
+#morse_and_natural("SOS")
+

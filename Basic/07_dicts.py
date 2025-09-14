@@ -1,6 +1,6 @@
 ### Dictionaries ###
 """
-En un diccionario podemos guardar los datos de tipo clave valor
+En un diccionario podemos guardar los datos de tipo clave valor.
     *Para acceder a un elemento NO necesitas el índice, llamas al nombre del elemento:
     print(my_dict["Lenguajes"])✅
     print(my_dict[2])🛑
@@ -51,4 +51,3 @@ print("\n")
 print(list(my_new_dict)) # imprime las CLAVES en los 3 casos
 print(tuple(my_new_dict))
 print(set(my_new_dict)) # desordenado pq es un SET
-
