@@ -1,7 +1,9 @@
 ### Dictionaries ###
 """
 En un diccionario podemos guardar los datos de tipo clave valor.
-    *Para acceder a un elemento NO necesitas el índice, llamas al nombre del elemento:
+Un diccionario no es una estructura ordenada como tal, estríctamente hablando.
+Así que para acceder a un elemento NO necesitas el índice, tendrás que
+llamar al nombre del elemento:
     print(my_dict["Lenguajes"])✅
     print(my_dict[2])🛑
 """
