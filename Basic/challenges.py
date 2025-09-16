@@ -209,3 +209,52 @@ def morse_and_natural(text):
 #morse_and_natural("···  ———  ···")
 #morse_and_natural("SOS")
 
+
+"""-- 11 --
+EXPRESIONES EQUILIBRADAS
+Crea un programa que comprueba si los paréntesis, llaves y corchetes
+de una expresión están equilibrados.
+- Equilibrado significa que estos delimitadores se abren y cieran
+  en orden y de forma correcta.
+- Paréntesis, llaves y corchetes son igual de prioritarios.
+  No hay uno más importante que otro.
+- Expresión balanceada: { [ a * ( c + d ) ] - 5 }
+- Expresión no balanceada: { a * ( c + d ) ] - 5 }
+"""
+
+def balanced_expressions(text):
+    list_text = list(text)
+    dict_symbols = {"{":"}", "[":"]", "(":")"}
+    pila = []
+
+    for element in text:
+        if element in "{[(":
+            pila.append(element)
+        elif element in "}])":
+            try:
+                open_symbol = pila[-1]
+            except IndexError:
+                return False
+            dict_close_symbol = dict_symbols[open_symbol]
+            if element == dict_close_symbol:
+                #print(f"Se ha abierto con '{open_symbol}' y cerrado con '{element}'")
+                del pila[-1]
+            else:
+                return False
+    if len(pila) > 0:
+        print("Se ha abierto sin cerrar")
+        return False
+    
+    return True
+            
+
+
+#print(balanced_expressions("{[a+b] - (a) + 7}")) # True
+#print(balanced_expressions("{a+b]-(a)+78}")) # False
+print(balanced_expressions("{a + b [c] * (2x2)}}}}"))
+print(balanced_expressions("{ [ a * ( c + d ) ] - 5 }"))
+print(balanced_expressions("{ a * ( c + d ) ] - 5 }"))
+print(balanced_expressions("{a^4 + (((ax4)}"))
+print(balanced_expressions("{ ] a * ( c + d ) + ( 2 - 3 )[ - 5 }"))
+print(balanced_expressions("{{{{{{(}}}}}}"))
+print(balanced_expressions("(a"))

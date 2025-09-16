@@ -33,7 +33,7 @@ print(my_other_dict["Nombre"])
 # --- TypeError ---
 """Los indices han de ser ints.
 En el caso de una lista, se filtra por indices no por nombres de elementos"""
-my_new_list = ["hola", "botella"] 
+my_new_list = ["hola", "botella"]
 #print(my_new_list["hola"])
 print(my_new_list[0])
 
@@ -48,5 +48,5 @@ from math import pi
 #print(type(my_int))
 
 # --- ZeroDivisionError
-#print(4/0)
+#print(4/0) 
 print(4/2)
