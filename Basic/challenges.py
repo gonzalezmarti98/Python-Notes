@@ -251,10 +251,80 @@ def balanced_expressions(text):
 
 #print(balanced_expressions("{[a+b] - (a) + 7}")) # True
 #print(balanced_expressions("{a+b]-(a)+78}")) # False
-print(balanced_expressions("{a + b [c] * (2x2)}}}}"))
-print(balanced_expressions("{ [ a * ( c + d ) ] - 5 }"))
-print(balanced_expressions("{ a * ( c + d ) ] - 5 }"))
-print(balanced_expressions("{a^4 + (((ax4)}"))
-print(balanced_expressions("{ ] a * ( c + d ) + ( 2 - 3 )[ - 5 }"))
-print(balanced_expressions("{{{{{{(}}}}}}"))
-print(balanced_expressions("(a"))
+#print(balanced_expressions("{a + b [c] * (2x2)}}}}"))
+#print(balanced_expressions("{ [ a * ( c + d ) ] - 5 }"))
+#print(balanced_expressions("{ a * ( c + d ) ] - 5 }"))
+#print(balanced_expressions("{a^4 + (((ax4)}"))
+#print(balanced_expressions("{ ] a * ( c + d ) + ( 2 - 3 )[ - 5 }"))
+#print(balanced_expressions("{{{{{{(}}}}}}"))
+#print(balanced_expressions("(a"))
+
+
+""" -- 12 --
+ELIMINANDO CARACTERES
+Crea una función que reciba dos cadenas como parámetro (str1, str2)
+e imprima otras dos cadenas como salida (out1, out2).
+- out1 contendrá todos los caracteres presentes en la str1 pero NO
+  estén presentes en str2.
+- out2 contendrá todos los caracteres presentes en la str2 pero NO
+  estén presentes en str1.
+"""
+
+def rm_same_char(str1, str2):
+    str1 = str1.lower()
+    str2 = str2.lower()
+    out1 = ""
+    out2 = ""
+
+    for char in str2:
+        if char not in str1:
+            out2 += char
+
+    for char in str1:
+        if char not in str2:
+            out1 += char
+            
+    return out1, out2
+
+#print(rm_same_char("Abcd", "aeiOu"))
+
+
+""" --- 14 ---
+FACTORIAL RECURSIVO
+Escribe una función que calcule y retorne el factorial de un número dado
+de forma recursiva.
+Ejemplo: factorial de 4 --> 4 * 3 * 2 * 1
+ """
+
+def factorial_recurs(num):
+    if num <= 1:
+        return 1
+    
+    return num * factorial_recurs(num-1)
+
+#print(factorial_recurs(4))
+#print(factorial_recurs(5))
+
+
+""" --- 15 ---
+¿ES UN NÚMERO DE ARMSTRONG / NARCISISTA?
+Escribe una función que calcule si un número dado es un número de Armstrong (o también llamado narcisista).
+***Un número de Armstrong es un entero positivo que es igual a la suma de sus propios dígitos, cada uno elevado
+a la potencia del número total de dígitos que posee. Por ejemplo, 153 es un número de Armstrong porque tiene tres dígitos,
+y la suma de sus dígitos elevados al cubo (1³ + 5³ + 3³ = 1 + 125 + 27) es igual a 153.***
+"""
+
+def is_armstrong(num):
+    num_list = list(str(num))
+    result = 0
+
+    for digit in num_list:
+        result += int(digit) ** len(str(num))
+
+    if result == num: return True
+    else: return False
+
+
+print(is_armstrong(153))
+print(is_armstrong(370))
+print(is_armstrong(371))
