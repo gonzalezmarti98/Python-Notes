@@ -29,11 +29,12 @@ print((sum_ten(5)(6)))
 
 ## 1 - Map ------- ##
 """
+El map devolverá otro listado iterable el cual cada uno de los elementos
+habrá sido modificado por la función que le hemos pasado
 Un map necesita:
 - un listado iterable
 - una función / lambda
-El map devolverá otro listado iterable el cual cada uno de los elementos
-habrá sido modificado por la función que le hemos pasado"""
+"""
 
 numbers = [2, 5, 10, 21]
 

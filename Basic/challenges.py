@@ -325,6 +325,79 @@ def is_armstrong(num):
     else: return False
 
 
-print(is_armstrong(153))
-print(is_armstrong(370))
-print(is_armstrong(371))
+#print(is_armstrong(153))
+#print(is_armstrong(370))
+#print(is_armstrong(371))
+
+
+"""--- 16 ---
+¿CUÁNTOS DÍAS?
+Crea una función que calcule y retorne cuántos días hay entre dos cadenas
+de texto que representen fechas.
+  - Una cadena de texto que representa una fecha tiene el formato "dd/MM/yyyy".
+  - La función recibirá dos String y retornará un Int.
+  - La diferencia en días será absoluta (no importa el orden de las fechas).
+  - Si una de las dos cadenas de texto no representa una fecha correcta se
+    lanzará una excepción.
+"""
+
+from datetime import datetime
+
+def dif_time(fecha1, fecha2):
+    try:
+        fecha1_date = datetime.strptime(fecha1, "%d/%m/%Y").date()
+        fecha2_date = datetime.strptime(fecha2, "%d/%m/%Y").date()
+        #print(fecha1_date, fecha2_date)
+    except ValueError as e:
+        return "Fechas introducidas incorrectamente"
+    
+    diff = abs(fecha1_date - fecha2_date) # con abs() en caso de ser -4, sería 4. Así con todo. Da el valor absoluto
+    return diff.days
+
+
+#print(dif_time("18/05/1998", "23/09/2025"))
+#print(dif_time("23/09/2025", "28/09/2016"))
+
+
+"""
+--- 18 ---
+CARRERA DE OBSTÁCULOS
+Crea una función que evalúe si un/a atleta ha superado correctamente una
+carrera de obstáculos.
+  - La función recibirá dos parámetros:
+        - Un array que sólo puede contener String con las palabras
+          "run" o "jump"
+        - Un String que represente la pista y sólo puede contener "_" (suelo)
+          o "|" (valla)
+  - La función imprimirá cómo ha finalizado la carrera:
+        - Si el/a atleta hace "run" en "_" (suelo) y "jump" en "|" (valla)
+          será correcto y no variará el símbolo de esa parte de la pista.
+        - Si hace "jump" en "_" (suelo), se variará la pista por "x".
+        - Si hace "run" en "|" (valla), se variará la pista por "/".
+  - La función retornará un Boolean que indique si ha superado la carrera.
+Para ello tiene que realizar la opción correcta en cada tramo de la pista.
+"""
+
+def obstacle_race(obstacles, runner_movements):
+    runner_movements = list(runner_movements)
+    final_mov = []
+    for obst, mov in zip(obstacles, runner_movements):
+        if (obst == "run" and mov == "_") or (obst == "jump" and mov == "|"):
+            final_mov.append(mov)
+
+        elif obst == "run" and mov != "_":
+            final_mov.append("/")
+
+        elif obst == "jump" and mov != "|":
+            final_mov.append("x")
+
+    final_mov = "".join(final_mov)
+    print(final_mov)
+    for element in final_mov:
+        if element in "x/":
+            return False
+    
+    return True
+
+print(obstacle_race(["run", "jump", "jump", "run"], "_|_|"))
+print(obstacle_race(["run", "jump", "run", "jump"], "_|_|"))

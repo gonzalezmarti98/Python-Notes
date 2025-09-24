@@ -62,9 +62,6 @@ print(current_time.second)
 # Para representar la fecha
 from datetime import date
 
-#current_date = date() # esto está vacío, hay que rellenarlo
-#print(current_date.year) --> Esto daría error pq date() está vacío
-
 current_date = date.today() # así nos da la fecha actual
 print(current_date)
 

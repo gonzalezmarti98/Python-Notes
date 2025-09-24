@@ -11,7 +11,8 @@ my_list = [i for i in range(8)] # los 2 imprimen lo mismo
 print(my_list)
 
 #Me puedo crear una lista a partir de otra, añadiendo algo. Sumando +1 a todo por ejemplo
-my_list = [i + 1 for i in range(8)]
+my_plus_one_list = [i + 1 for i in my_original_list]
+print(my_plus_one_list)
 
 #Se puede también juntarlo con funciones
 def sum_five(element):
